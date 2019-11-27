@@ -13,7 +13,7 @@ class TextHandler:
         self.filename = filename
 
     @staticmethod
-    def get_text(filename: str) -> str:
+    def __get_text(filename: str) -> str:
         with open(filename, 'r') as f:
             return f.read()
 
@@ -22,7 +22,7 @@ class TextHandler:
         Split text from file to chunks
         :return: list of chunked text
         """
-        raw_text = self.get_text(self.filename)
+        raw_text = self.__get_text(self.filename)
 
         chunks_count = len(raw_text) / math.ceil(len(raw_text) / LIMIT)
 
